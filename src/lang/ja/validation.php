@@ -153,6 +153,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+      'name' => '名前',
+      'title' => 'タイトル',
+      'body' => '本文',
+    ],
 
 ];

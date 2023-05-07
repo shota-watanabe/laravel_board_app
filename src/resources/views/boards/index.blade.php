@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<x-flash-message status="session('status')" />
 <div class="d-flex align-items-center mb-3">
   <h2>掲示板一覧</h2>
   <div class="ms-auto">

@@ -21,8 +21,16 @@ class BoardsController extends Controller
     public function create(Request $request)
     {
         $posts = $request->all();
+        $request->validate([
+          'name' => 'required|max:255',
+          'title' => 'required|max:30',
+          'body' => 'required',
+      ]);
+
         Board::insert(['user_id' => \Auth::id(), 'name' => $posts['name'], 'title' => $posts['title'], 'body' => $posts['body']]);
 
-        return view('boards.index');
+        return redirect()
+        ->route('boards.index')
+        ->with(['message' => '保存に成功しました', 'status' => 'info']);
     }
 }
