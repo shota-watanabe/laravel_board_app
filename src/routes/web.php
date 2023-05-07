@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BoardsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('boards/index');
+// });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('boards')->middleware('auth:users')->group(function () {
+  Route::post('create', [BoardsController::class, 'create'])->name('boards.create');
+  Route::get('new', function () {
+    return view('boards/new');
+});
+});
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [BoardsController::class, 'index'])->name('boards.index');

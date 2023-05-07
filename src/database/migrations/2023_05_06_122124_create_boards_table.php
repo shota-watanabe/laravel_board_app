@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id', true);
             $table->string('name');
             $table->string('title');
-            $table->string('body');
+            $table->longText('body');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

@@ -4,7 +4,7 @@
 <div class="d-flex align-items-center mb-3">
   <h2>掲示板一覧</h2>
   <div class="ms-auto">
-    <a class="btn btn-outline-dark">新規作成</a>
+    <a href="/boards/new" class="btn btn-outline-dark">新規作成</a>
   </div>
 </div>
 <table class="table table-hover">
