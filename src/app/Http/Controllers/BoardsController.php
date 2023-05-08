@@ -26,7 +26,6 @@ class BoardsController extends Controller
           'title' => 'required|max:30',
           'body' => 'required',
       ]);
-
         Board::insert(['user_id' => \Auth::id(), 'name' => $posts['name'], 'title' => $posts['title'], 'body' => $posts['body']]);
 
         return redirect()
